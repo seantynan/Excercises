@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Generate a crossword</title>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 20px;
+}
+tbody tr:nth-child(odd){
+  background-color: white;
+}
+/*
+tr td:nth-child(odd ){
+  background-color: white;
+}
+*/
+</style>
+<script type="text/javascript" >
+function btnClick()
+{
+var table ='';
+var colour = '';
+var i,j = 1;
+for (i=1; i<=9; i++)
+{
+    table += '<tr id = "row' + i + '">';
+    
+    for (j=1; j<=9; j++)
+    {
+        colour = j   % 2 == 0 ? "black" : "white";
+        table += '<td id = "col' + j + '" bgcolor="' + colour + '"></td>'; 
+    }
+    table += '</tr>';
+}
+document.getElementById('grid').innerHTML = table;
+}
+</script></head>
+<body>
+    <input type="button" value="Generate Crossword" OnClick="btnClick()" />
+    <br/><br/>
+    <div><table id="grid"></table></div>
+</body>
+</html>
