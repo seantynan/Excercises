@@ -9,6 +9,8 @@ table, th, td {
     border-collapse: collapse;
     padding: 20px;
 }
+
+/* Set every odd row white */
 tbody tr:nth-child(odd){
   background-color: white;
 }
@@ -30,7 +32,10 @@ for (i=1; i<=9; i++)
     
     for (j=1; j<=9; j++)
     {
-        colour = j   % 2 == 0 ? "black" : "white";
+        // Set every even column black
+        colour = j  % 2 == 0 ? "black" : "";
+
+        // Append the cell
         table += '<td id = "col' + j + '" bgcolor="' + colour + '"></td>'; 
     }
     table += '</tr>';
